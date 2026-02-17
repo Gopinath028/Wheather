@@ -16,6 +16,7 @@ const api = axios.create({
       : "/api",
     headers: {
     "Content-Type": "application/json",
+       timeout: 10000,
 }); // 🔥 IMPORTANT (uses proxy)
 
 /* ===============================
