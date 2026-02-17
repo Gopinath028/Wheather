@@ -18,7 +18,7 @@ const api = axios.create({
     "Content-Type": "application/json",
        timeout: 10000,
 }); // 🔥 IMPORTANT (uses proxy)
-
+export default api;
 /* ===============================
    Storage Config
 ================================= */
