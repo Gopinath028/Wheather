@@ -10,12 +10,11 @@ import axios from "axios";
 ================================= */
 
 const api = axios.create({
-  baseURL: `${process.env.REACT_APP_API_URL}/api`, // 🔥 IMPORTANT (uses proxy)
-  headers: {
-    "Content-Type": "application/json",
-  },
-  timeout: 10000,
-});
+  baseURL:
+    process.env.NODE_ENV === "production"
+      ? "https://wheather-app-2dbo.onrender.com/api"
+      : "/api",
+}); // 🔥 IMPORTANT (uses proxy)
 
 /* ===============================
    Storage Config
