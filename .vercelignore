@@ -1,0 +1,36 @@
+# Development files
+.env
+.env.local
+.env.*.local
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Development tools
+.vscode/
+.idea/
+
+# Testing
+coverage/
+.nyc_output/
+
+# Build files that will be rebuilt
+client/node_modules/
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Documentation
+README.md
+DEPLOYMENT_FIX.md
+*.md
+
+# Server code (not needed for serverless)
+server/server.js

@@ -1,0 +1,361 @@
+/**
+ * Splash Screen Styles
+ * Animated loading screen for app startup
+ */
+
+.splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #2e1a47 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  animation: splashFadeIn 0.5s ease;
+}
+
+@keyframes splashFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.splash-screen.splash-exit {
+  animation: splashFadeOut 0.8s ease forwards;
+}
+
+@keyframes splashFadeOut {
+  to {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+}
+
+.splash-content {
+  text-align: center;
+  z-index: 2;
+  animation: contentSlideUp 0.8s ease 0.2s backwards;
+}
+
+@keyframes contentSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animated weather icons */
+.splash-icon-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 2rem;
+}
+
+.splash-sun {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 5rem;
+  animation: sunRotate 4s linear infinite, sunPulse 2s ease-in-out infinite;
+}
+
+@keyframes sunRotate {
+  from {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  to {
+    transform: translateX(-50%) rotate(360deg);
+  }
+}
+
+@keyframes sunPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 20px rgba(255, 190, 11, 0.8));
+  }
+  50% {
+    filter: drop-shadow(0 0 40px rgba(255, 190, 11, 1));
+  }
+}
+
+.splash-cloud {
+  position: absolute;
+  top: 35%;
+  left: 25%;
+  font-size: 3rem;
+  animation: cloudFloat 3s ease-in-out infinite;
+}
+
+@keyframes cloudFloat {
+  0%, 100% {
+    transform: translateX(0) translateY(0);
+  }
+  50% {
+    transform: translateX(20px) translateY(-10px);
+  }
+}
+
+.splash-rain {
+  position: absolute;
+  bottom: 20%;
+  right: 25%;
+  font-size: 2.5rem;
+  animation: rainDrop 1.5s ease-in-out infinite;
+}
+
+@keyframes rainDrop {
+  0% {
+    transform: translateY(-10px);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(10px);
+    opacity: 0.5;
+  }
+}
+
+/* Animated title */
+.splash-title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.1rem;
+  flex-wrap: wrap;
+}
+
+.splash-letter {
+  display: inline-block;
+  background: linear-gradient(135deg, #ff6b35, #ff8c42, #ff006e, #8338ec, #3a86ff, #06ffa5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: letterBounce 0.6s ease backwards;
+}
+
+.splash-letter:nth-child(1) { animation-delay: 0.1s; }
+.splash-letter:nth-child(2) { animation-delay: 0.15s; }
+.splash-letter:nth-child(3) { animation-delay: 0.2s; }
+.splash-letter:nth-child(4) { animation-delay: 0.25s; }
+.splash-letter:nth-child(5) { animation-delay: 0.3s; }
+.splash-letter:nth-child(6) { animation-delay: 0.35s; }
+.splash-letter:nth-child(7) { animation-delay: 0.4s; }
+.splash-letter:nth-child(8) { animation-delay: 0.45s; }
+.splash-letter:nth-child(9) { animation-delay: 0.5s; }
+.splash-letter:nth-child(10) { animation-delay: 0.55s; }
+.splash-letter:nth-child(11) { animation-delay: 0.6s; }
+.splash-letter:nth-child(12) { animation-delay: 0.65s; }
+.splash-letter:nth-child(13) { animation-delay: 0.7s; }
+.splash-letter:nth-child(14) { animation-delay: 0.75s; }
+.splash-letter:nth-child(15) { animation-delay: 0.8s; }
+.splash-letter:nth-child(16) { animation-delay: 0.85s; }
+.splash-letter:nth-child(17) { animation-delay: 0.9s; }
+
+@keyframes letterBounce {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.5);
+  }
+  50% {
+    transform: translateY(5px) scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Progress bar */
+.splash-progress-container {
+  width: 300px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
+}
+
+.splash-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #ff6b35, #ff006e, #8338ec, #06ffa5);
+  background-size: 200% 100%;
+  border-radius: 10px;
+  transition: width 0.3s ease;
+  animation: progressShine 2s linear infinite;
+}
+
+@keyframes progressShine {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 200% 0%;
+  }
+}
+
+/* Loading text */
+.splash-loading-text {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1rem;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.splash-dots {
+  display: flex;
+  gap: 0.1rem;
+}
+
+.splash-dots span {
+  animation: dotBlink 1.4s infinite;
+}
+
+.splash-dots span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.splash-dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.splash-dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes dotBlink {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Background particles */
+.splash-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.splash-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: linear-gradient(135deg, #ff6b35, #ff006e);
+  border-radius: 50%;
+  animation: particleFloat 3s ease-in-out infinite;
+  opacity: 0.6;
+}
+
+.splash-particle-1 { top: 10%; left: 15%; animation-delay: 0s; }
+.splash-particle-2 { top: 20%; left: 85%; animation-delay: 0.3s; }
+.splash-particle-3 { top: 30%; left: 25%; animation-delay: 0.6s; }
+.splash-particle-4 { top: 40%; left: 75%; animation-delay: 0.9s; }
+.splash-particle-5 { top: 50%; left: 50%; animation-delay: 1.2s; }
+.splash-particle-6 { top: 60%; left: 20%; animation-delay: 1.5s; }
+.splash-particle-7 { top: 70%; left: 80%; animation-delay: 1.8s; }
+.splash-particle-8 { top: 80%; left: 40%; animation-delay: 2.1s; }
+.splash-particle-9 { top: 15%; left: 60%; animation-delay: 0.4s; }
+.splash-particle-10 { top: 25%; left: 45%; animation-delay: 0.7s; }
+.splash-particle-11 { top: 35%; left: 90%; animation-delay: 1s; }
+.splash-particle-12 { top: 45%; left: 10%; animation-delay: 1.3s; }
+.splash-particle-13 { top: 55%; left: 65%; animation-delay: 1.6s; }
+.splash-particle-14 { top: 65%; left: 35%; animation-delay: 1.9s; }
+.splash-particle-15 { top: 75%; left: 55%; animation-delay: 2.2s; }
+
+@keyframes particleFloat {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-20px) scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .splash-icon-container {
+    width: 150px;
+    height: 150px;
+  }
+
+  .splash-sun {
+    font-size: 4rem;
+  }
+
+  .splash-cloud {
+    font-size: 2.5rem;
+  }
+
+  .splash-rain {
+    font-size: 2rem;
+  }
+
+  .splash-title {
+    font-size: 2rem;
+    padding: 0 1rem;
+  }
+
+  .splash-progress-container {
+    width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .splash-icon-container {
+    width: 120px;
+    height: 120px;
+  }
+
+  .splash-sun {
+    font-size: 3rem;
+  }
+
+  .splash-cloud {
+    font-size: 2rem;
+  }
+
+  .splash-rain {
+    font-size: 1.5rem;
+  }
+
+  .splash-title {
+    font-size: 1.5rem;
+  }
+
+  .splash-progress-container {
+    width: 200px;
+  }
+
+  .splash-loading-text {
+    font-size: 0.9rem;
+  }
+}
+
