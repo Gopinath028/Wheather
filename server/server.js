@@ -38,8 +38,10 @@ connectDB();
 
 // ✅ CORS (VERY IMPORTANT)
 app.use(
-  cors({
-    origin: "https://wheather-application-8h09.onrender.com/", // React app
+  cors({ 
+     origin: [
+    "https://wheather-application-8h09.onrender.com"
+  ],// React app
     credentials: true,
   })
 );
