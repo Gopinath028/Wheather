@@ -14,6 +14,8 @@ const api = axios.create({
     process.env.NODE_ENV === "production"
       ? "https://wheather-app-2dbo.onrender.com/api"
       : "/api",
+    headers: {
+    "Content-Type": "application/json",
 }); // 🔥 IMPORTANT (uses proxy)
 
 /* ===============================
