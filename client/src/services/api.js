@@ -8,16 +8,17 @@ import axios from "axios";
 /* ===============================
    Axios Instance
 ================================= */
-
 const api = axios.create({
   baseURL:
     process.env.NODE_ENV === "production"
       ? "https://wheather-app-2dbo.onrender.com/api"
       : "/api",
-    headers: {
+  headers: {
     "Content-Type": "application/json",
-       timeout: 10000,
-}); // 🔥 IMPORTANT (uses proxy)
+  },
+  timeout: 10000,
+});
+
 export default api;
 /* ===============================
    Storage Config
